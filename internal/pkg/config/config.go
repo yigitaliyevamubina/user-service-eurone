@@ -2,6 +2,7 @@ package config
 
 import (
 	"os"
+	"strings"
 )
 
 type Config struct {
@@ -22,6 +23,13 @@ type Config struct {
 		Password string
 		SslMode  string
 	}
+
+	Kafka struct {
+		Address []string
+		Topic   struct {
+			UserTopic string
+		}
+	}
 }
 
 func New() *Config {
@@ -41,6 +49,10 @@ func New() *Config {
 	config.DB.Password = getEnv("POSTGRES_PASSWORD", "mubina2007")
 	config.DB.SslMode = getEnv("POSTGRES_SSLMODE", "disable")
 	config.DB.Name = getEnv("POSTGRES_DATABASE", "socialdb")
+
+	// kafka configuration
+	config.Kafka.Address = strings.Split(getEnv("KAFKA_ADDRESS", "localhost:9092"), ",")
+	config.Kafka.Topic.UserTopic = getEnv("KAFKA_TOPIC_USER_SERVICE", "user.service.create")
 
 	return &config
 }

@@ -1,0 +1,48 @@
+2024-04-22T14:24:16.785+0500	ERROR	kafka/consumer.go:76	consumer failed to handle message:	{"value": "\n$8bec4605-06ad-49f8-82ba-d9ac5e09e12b\u0012\u0008john_doe\u001a\u0010john@example.com\"\u0011hashedpassword123*\u0004John2\u0003Doe:.Software engineer passionate about technology.B\u0013https://johndoe.comX\u0001b\u0014somerandomrefresh123", "topic": "user.service.create", "error": "invalid character '$' looking for beginning of value"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:76
+2024-04-22T14:26:58.843+0500	ERROR	kafka/consumer.go:76	consumer failed to handle message:	{"value": "{\"id\":\"757fd7e4-460a-4cb9-814f-f206bbbe834a\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:76
+2024-04-22T14:32:23.702+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T14:32:58.772+0500	ERROR	kafka/consumer.go:76	consumer failed to handle message:	{"value": "\n$8bec4605-06ad-49f8-82ba-d9ac5e09e12b\u0012\u0008john_doe\u001a\u0010john@example.com\"\u0011hashedpassword123*\u0004John2\u0003Doe:.Software engineer passionate about technology.B\u0013https://johndoe.comX\u0001b\u0014somerandomrefresh123", "topic": "user.service.create", "error": "invalid character '$' looking for beginning of value"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:76
+2024-04-22T14:32:58.774+0500	ERROR	kafka/consumer.go:76	consumer failed to handle message:	{"value": "{\"id\":\"757fd7e4-460a-4cb9-814f-f206bbbe834a\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:76
+2024-04-22T14:33:48.870+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T14:38:59.856+0500	ERROR	kafka/consumer.go:75	consumer failed to handle message:	{"value": "{\"id\":\"6d9bc145-520e-483f-a16b-fb22e533ea66\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:75
+2024-04-22T14:44:07.007+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T14:45:21.683+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "{\"id\":\"afb6d21c-211a-4cbd-a4d1-d8989b8508db\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T14:46:51.373+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T14:53:00.729+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "{\"id\":\"3024dc3f-5bea-42cb-bcd6-1847fa5dbf25\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T14:53:52.590+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T14:54:05.380+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T14:54:07.477+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "{\"id\":\"3024dc3f-5bea-42cb-bcd6-1847fa5dbf25\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T14:54:26.232+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T15:00:39.503+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "{\"id\":\"3024dc3f-5bea-42cb-bcd6-1847fa5dbf25\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T15:00:39.504+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "{\"id\":\"338a479b-c271-4f34-b717-99ae40df153a\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T15:00:48.506+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "{\"id\":\"7ac3c857-8cd2-451f-98cc-fdfcc240eb18\",\"username\":\"john_doe\",\"email\":\"john@example.com\",\"password\":\"hashedpassword123\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"bio\":\"Software engineer passionate about technology.\",\"website\":\"https://johndoe.com\",\"created_at\":\"\",\"updated_at\":\"\",\"is_active\":true,\"refresh_token\":\"somerandomrefresh123\"}", "topic": "user.service.create", "error": "context deadline exceeded"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T15:01:19.818+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T15:02:21.076+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T15:04:32.378+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T15:06:14.532+0500	INFO	app/consumer.go:57	user service stops
+2024-04-22T15:06:14.542+0500	ERROR	kafka/consumer.go:68	consumer failed to fetch message:	{"topic": "user.service.create", "error": "EOF"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:68
+2024-04-22T15:07:01.376+0500	INFO	app/consumer.go:57	user service stops

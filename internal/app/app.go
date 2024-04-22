@@ -6,11 +6,13 @@ import (
 	"fourth-exam/user-service-evrone/internal/delivery/grpc/server"
 	"fourth-exam/user-service-evrone/internal/delivery/grpc/services"
 	grpc_service_clients "fourth-exam/user-service-evrone/internal/infrastructure/grpc_service_client"
+	"fourth-exam/user-service-evrone/internal/infrastructure/kafka"
 	repo "fourth-exam/user-service-evrone/internal/infrastructure/repository/postgresql"
 	"fourth-exam/user-service-evrone/internal/pkg/config"
 	"fourth-exam/user-service-evrone/internal/pkg/logger"
 	"fourth-exam/user-service-evrone/internal/pkg/postgres"
 	"fourth-exam/user-service-evrone/internal/usecase"
+	"fourth-exam/user-service-evrone/internal/usecase/event"
 	"time"
 
 	"go.uber.org/zap"
@@ -23,6 +25,7 @@ type App struct {
 	DB             *postgres.PostgresDB
 	ServiceClients grpc_service_clients.ServiceClients
 	GrpcServer     *grpc.Server
+	BrokerConsumer event.BrokerConsumer
 }
 
 func NewApp(cfg *config.Config) (*App, error) {
@@ -40,13 +43,15 @@ func NewApp(cfg *config.Config) (*App, error) {
 	if err != nil {
 		return nil, err
 	}
+	brokerConsumer := kafka.NewConsumer(logger)
 
 	return &App{
-		Config: cfg,
-		Logger: logger,
-		DB:     db,
-		GrpcServer: grpcServer,
+		Config:         cfg,
+		Logger:         logger,
+		DB:             db,
+		GrpcServer:     grpcServer,
 		ServiceClients: clients,
+		BrokerConsumer: brokerConsumer,
 	}, nil
 }
 
@@ -72,6 +77,8 @@ func (a *App) Run() error {
 
 	pb.RegisterUserServiceServer(a.GrpcServer, services.NewRPC(a.Logger, userUseCase))
 
+	// a.BrokerConsumer.Run()
+
 	a.Logger.Info("gRPC Server Listening", zap.String("url", a.Config.RPCPort))
 	if err := server.Run(a.Config, a.GrpcServer); err != nil {
 		return fmt.Errorf("gRPC fatal to serve grpc server over %s %w", a.Config.RPCPort, err)
@@ -87,6 +94,9 @@ func (a *App) Stop() {
 
 	// database connection
 	a.DB.Close()
+
+	// broker consumer connection
+	a.BrokerConsumer.Close()
 
 	// zap logger sync
 	a.Logger.Sync()

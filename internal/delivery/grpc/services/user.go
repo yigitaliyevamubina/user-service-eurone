@@ -125,5 +125,5 @@ func (d *userRPC) List(ctx context.Context, in *pb.GetListFilter) (*pb.Users, er
 		})
 	}
 
-	return &pb.Users{Users: pbUsers}, nil
+	return &pb.Users{Users: pbUsers, Count: int64(len(pbUsers))}, nil
 }

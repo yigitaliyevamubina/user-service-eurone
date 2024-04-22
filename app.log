@@ -1,73 +1,23 @@
-2024-04-17T18:23:55.087+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:23:56.522+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:24:20.338+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:24:25.316+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:28:49.486+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:30:21.810+0500	ERROR	services/user.go:39	userUseCase.Create	{"error": "object already exist"}
-fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Create
-	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:39
-fourth-exam/user-service-evrone/genproto/user_service._UserService_Create_Handler
-	/home/mubina/go/src/fourth-exam/user-service-evrone/genproto/user_service/user.pb.go:1054
+2024-04-22T14:18:40.447+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T14:18:42.457+0500	INFO	app/root.go:37	user service stops
+2024-04-22T14:19:01.086+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T14:19:02.282+0500	INFO	app/root.go:37	user service stops
+2024-04-22T14:22:27.977+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T14:22:28.932+0500	INFO	app/root.go:37	user service stops
+2024-04-22T14:54:38.433+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T14:55:04.042+0500	INFO	app/root.go:37	user service stops
+2024-04-22T14:56:06.366+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T14:57:19.332+0500	INFO	app/root.go:37	user service stops
+2024-04-22T14:57:25.201+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T14:57:34.191+0500	ERROR	services/user.go:74	userUseCase.Get	{"error": "object not found"}
+fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Get
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:74
+fourth-exam/user-service-evrone/genproto/user_service._UserService_Get_Handler
+	/home/mubina/go/src/fourth-exam/user-service-evrone/genproto/user_service/user.pb.go:1090
 google.golang.org/grpc.(*Server).processUnaryRPC
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
 google.golang.org/grpc.(*Server).handleStream
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
 google.golang.org/grpc.(*Server).serveStreams.func2.1
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
-2024-04-17T18:31:35.602+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:31:42.595+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:32:06.576+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:32:49.310+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:32:56.258+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:33:12.915+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:34:49.820+0500	ERROR	services/user.go:40	userUseCase.Create	{"error": "context deadline exceeded"}
-fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Create
-	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:40
-fourth-exam/user-service-evrone/genproto/user_service._UserService_Create_Handler
-	/home/mubina/go/src/fourth-exam/user-service-evrone/genproto/user_service/user.pb.go:1054
-google.golang.org/grpc.(*Server).processUnaryRPC
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
-google.golang.org/grpc.(*Server).handleStream
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
-google.golang.org/grpc.(*Server).serveStreams.func2.1
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
-2024-04-17T18:34:49.832+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:35:32.448+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:35:35.663+0500	ERROR	services/user.go:43	userUseCase.Create	{"error": "object already exist"}
-fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Create
-	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:43
-fourth-exam/user-service-evrone/genproto/user_service._UserService_Create_Handler
-	/home/mubina/go/src/fourth-exam/user-service-evrone/genproto/user_service/user.pb.go:1054
-google.golang.org/grpc.(*Server).processUnaryRPC
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
-google.golang.org/grpc.(*Server).handleStream
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
-google.golang.org/grpc.(*Server).serveStreams.func2.1
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
-2024-04-17T18:35:49.769+0500	ERROR	services/user.go:43	userUseCase.Create	{"error": "object already exist"}
-fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Create
-	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:43
-fourth-exam/user-service-evrone/genproto/user_service._UserService_Create_Handler
-	/home/mubina/go/src/fourth-exam/user-service-evrone/genproto/user_service/user.pb.go:1054
-google.golang.org/grpc.(*Server).processUnaryRPC
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
-google.golang.org/grpc.(*Server).handleStream
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
-google.golang.org/grpc.(*Server).serveStreams.func2.1
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
-2024-04-17T18:36:01.120+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:37:40.180+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:39:35.539+0500	ERROR	services/user.go:43	userUseCase.Create	{"error": "context deadline exceeded"}
-fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Create
-	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:43
-fourth-exam/user-service-evrone/genproto/user_service._UserService_Create_Handler
-	/home/mubina/go/src/fourth-exam/user-service-evrone/genproto/user_service/user.pb.go:1054
-google.golang.org/grpc.(*Server).processUnaryRPC
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
-google.golang.org/grpc.(*Server).handleStream
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
-google.golang.org/grpc.(*Server).serveStreams.func2.1
-	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
-2024-04-17T18:39:50.496+0500	INFO	cmd/main.go:34	User service stops !
-2024-04-17T18:39:57.347+0500	INFO	app/app.go:75	gRPC Server Listening	{"url": ":9090"}
-2024-04-17T18:41:27.748+0500	INFO	cmd/main.go:34	User service stops !
+2024-04-22T14:57:41.992+0500	INFO	app/root.go:37	user service stops

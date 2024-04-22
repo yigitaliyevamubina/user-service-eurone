@@ -2,6 +2,7 @@ package usecase
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"fourth-exam/user-service-evrone/internal/entity"
@@ -32,6 +33,8 @@ func NewUserService(ctxTimeout time.Duration, repo repository.User) User {
 func (u *userService) Create(ctx context.Context, req *entity.User) (*entity.User, error) {
 	ctx, cancel := context.WithTimeout(ctx, u.ctxTimeout)
 	defer cancel()
+
+	fmt.Println("1")
 
 	u.beforeRequest(&req.Id, &req.CreatedAt, &req.UpdatedAt)
 
