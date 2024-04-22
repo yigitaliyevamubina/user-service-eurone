@@ -1,0 +1,15 @@
+2024-04-22T20:03:55.941+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:04:51.724+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:08:18.654+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:11:53.994+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:13:13.565+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:14:07.183+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:14:09.908+0500	ERROR	kafka/consumer.go:68	consumer failed to fetch message:	{"topic": "user.service.create", "error": "EOF"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:68
+2024-04-22T20:15:12.746+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:16:36.715+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:22:47.753+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:25:06.323+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:26:57.410+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:27:54.522+0500	INFO	app/consumer.go:57	user consumer stops

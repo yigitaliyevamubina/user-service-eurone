@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"fourth-exam/user-service-evrone/internal/delivery/kafka/handlers"
 	"fourth-exam/user-service-evrone/internal/infrastructure/kafka"
 	"fourth-exam/user-service-evrone/internal/infrastructure/repository/postgresql"
@@ -8,6 +9,7 @@ import (
 	"fourth-exam/user-service-evrone/internal/pkg/postgres"
 	"fourth-exam/user-service-evrone/internal/usecase"
 	"fourth-exam/user-service-evrone/internal/usecase/event"
+	"time"
 
 	logpkg "fourth-exam/user-service-evrone/internal/pkg/logger"
 
@@ -30,7 +32,9 @@ func NewUserConsumer(conf *config.Config) (*UserConsumer, error) {
 	consumer := kafka.NewConsumer(logger)
 
 	db, err := postgres.New(conf)
+	fmt.Println(err, " error here")
 	if err != nil {
+		fmt.Println(err, " error here")
 		return nil, err
 	}
 
@@ -38,12 +42,16 @@ func NewUserConsumer(conf *config.Config) (*UserConsumer, error) {
 }
 
 func (u *UserConsumer) Run() error {
-	
+
 	// repo init
 	userRepo := postgresql.NewUsersRepo(u.DB)
 
 	// usecase init
-	userUseCase := usecase.NewUserService(u.DB.Config().ConnConfig.ConnectTimeout, userRepo)
+	duration, err := time.ParseDuration(u.Config.Context.Timeout)
+	if err != nil {
+		return fmt.Errorf("error during parse duration for context timeout : %w", err)
+	}
+	userUseCase := usecase.NewUserService(duration, userRepo)
 
 	// event handler
 	eventHandler := handlers.NewUserConsumerHandler(u.Config, u.BrokerConsumer, u.Logger, userUseCase)

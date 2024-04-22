@@ -59,7 +59,7 @@ func (a *App) Run() error {
 	var (
 		contextTimeout time.Duration
 	)
-
+	fmt.Println("+++")
 	contextTimeout, err := time.ParseDuration(a.Config.Context.Timeout)
 	if err != nil {
 		return fmt.Errorf("error during parse duration for context timeout : %w", err)

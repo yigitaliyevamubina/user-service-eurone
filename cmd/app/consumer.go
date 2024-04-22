@@ -25,7 +25,7 @@ var consumerCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) { // this function will be executed when this command is invoked
 		consumerName := args[0] // extracts the first argument from the 'args' slice
 
-		switch consumerName { // switch statement based on consumerName
+		switch consumerName { // switch statement based on consumerNames 
 		case USER_CREATE_CONSUMER:
 			UserCreateConsumerRun()
 		default:
@@ -54,7 +54,7 @@ func UserCreateConsumerRun() {
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 	<-sigs
 
-	app.Logger.Info("user service stops")
+	app.Logger.Info("user consumer stops")
 
 	// stop app
 	app.Close()

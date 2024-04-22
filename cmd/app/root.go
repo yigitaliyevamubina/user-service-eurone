@@ -18,7 +18,7 @@ var rootCmd = &cobra.Command{
 	Short: "This command to run grpc server",
 	Run: func(cmd *cobra.Command, args []string) {
 		config := config.New()
-
+		fmt.Println("app running")
 		app, err := app.NewApp(config)
 		if err != nil {
 			log.Fatal(err)

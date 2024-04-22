@@ -1,15 +1,5 @@
-2024-04-22T14:18:40.447+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T14:18:42.457+0500	INFO	app/root.go:37	user service stops
-2024-04-22T14:19:01.086+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T14:19:02.282+0500	INFO	app/root.go:37	user service stops
-2024-04-22T14:22:27.977+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T14:22:28.932+0500	INFO	app/root.go:37	user service stops
-2024-04-22T14:54:38.433+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T14:55:04.042+0500	INFO	app/root.go:37	user service stops
-2024-04-22T14:56:06.366+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T14:57:19.332+0500	INFO	app/root.go:37	user service stops
-2024-04-22T14:57:25.201+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T14:57:34.191+0500	ERROR	services/user.go:74	userUseCase.Get	{"error": "object not found"}
+2024-04-22T19:39:15.644+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T19:40:43.569+0500	ERROR	services/user.go:74	userUseCase.Get	{"error": "object not found"}
 fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Get
 	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:74
 fourth-exam/user-service-evrone/genproto/user_service._UserService_Get_Handler
@@ -20,4 +10,34 @@ google.golang.org/grpc.(*Server).handleStream
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
 google.golang.org/grpc.(*Server).serveStreams.func2.1
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
-2024-04-22T14:57:41.992+0500	INFO	app/root.go:37	user service stops
+2024-04-22T19:41:12.122+0500	INFO	app/root.go:37	user service stops
+2024-04-22T19:41:22.727+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T19:42:26.818+0500	INFO	app/root.go:37	user service stops
+2024-04-22T19:42:28.623+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T19:48:38.024+0500	INFO	app/root.go:37	user service stops
+2024-04-22T19:48:44.230+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T19:50:10.192+0500	INFO	app/root.go:37	user service stops
+2024-04-22T19:50:14.568+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:03:53.064+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:03:55.132+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:06:17.392+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:07:47.796+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:10:43.191+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:10:48.397+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:12:09.220+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:12:15.249+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:13:24.401+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:13:27.701+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:14:14.551+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:14:20.424+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:15:19.805+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:15:24.543+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:16:43.122+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:21:41.574+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:23:57.535+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:24:07.151+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:25:42.186+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:26:10.282+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:27:04.232+0500	INFO	app/root.go:37	user service stops
+2024-04-22T20:27:12.116+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
+2024-04-22T20:28:00.972+0500	INFO	app/root.go:37	user service stops

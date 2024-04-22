@@ -45,6 +45,7 @@ func (u *userRepo) usersSelectQueryPrefix() squirrel.SelectBuilder {
 }
 
 func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, error) {
+	fmt.Println("2")
 	data := map[string]any{
 		"id":            req.Id,
 		"username":      req.Username,
@@ -60,15 +61,24 @@ func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, 
 		"updated_at":    req.UpdatedAt,
 	}
 
+	fmt.Println(req)
 	query, args, err := u.db.Sq.Builder.Insert(u.tableName).SetMap(data).ToSql()
 	if err != nil {
 		return nil, u.db.ErrSQLBuild(err, fmt.Sprintf("%s %s", u.tableName, "create"))
 	}
 
+	fmt.Println("3")
+
+
+	fmt.Println(query)
+	fmt.Println(args...)
+
 	_, err = u.db.Exec(ctx, query, args...)
 	if err != nil {
+		fmt.Println(err, "<--------")
 		return nil, u.db.Error(err)
 	}
+
 
 	return req, nil
 }

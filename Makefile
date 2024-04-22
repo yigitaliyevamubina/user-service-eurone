@@ -24,11 +24,14 @@ run:
 
 # migrate
 .PHONY: migrate
-migrate:
+migrate-up:
 	migrate -source file://migrations -database postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}?sslmode=disable up
 
 migrate-file:
 	migrate create -ext sql -dir migrations/ -seq create_users_table
+
+migrate-down:
+	migrate -source file://migrations -database postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}?sslmode=disable down
 
 # proto
 .PHONY: proto-gen
@@ -58,3 +61,7 @@ build-image:
 push-image:
 	docker push ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG}
 	docker push ${REGISTRY}/${PROJECT_NAME}/${APP}:${ENV_TAG}
+
+.PHONY: consumer-run
+consumer-run:
+	go run cmd/main.go consumer user_create_consumer

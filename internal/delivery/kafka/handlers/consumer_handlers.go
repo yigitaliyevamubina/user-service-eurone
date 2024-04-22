@@ -10,8 +10,10 @@ import (
 	"fourth-exam/user-service-evrone/internal/pkg/config"
 	"fourth-exam/user-service-evrone/internal/usecase"
 	"fourth-exam/user-service-evrone/internal/usecase/event"
+	"time"
 
 	"go.uber.org/zap"
+	"github.com/k0kubun/pp"
 )
 
 type userConsumerHandler struct {
@@ -45,19 +47,27 @@ func (u *userConsumerHandler) HandlerEvents() error {
 				return err
 			}
 
+			pp.Println(user)
+
 			req := entity.User{
 				Id:           user.Id,
-                Username:     user.Username,
-                FirstName:    user.FirstName,
-                LastName:     user.LastName,
-                Bio:          user.Bio,
-                Website:      user.Website,
-                IsActive:     user.IsActive,
-                RefreshToken: user.RefreshToken,
+				Username:     user.Username,
+				FirstName:    user.FirstName,
+				LastName:     user.LastName,
+				Bio:          user.Bio,
+				Website:      user.Website,
+				IsActive:     user.IsActive,
+				RefreshToken: user.RefreshToken,
+				Email:        user.Email,
 			}
-			_, err := u.userUsecase.Create(ctx, &req)
+
+			ctxNew, err := context.WithTimeout(context.Background(), time.Second*7)
 			if err != nil {
-				fmt.Println(err, "Create=========================")
+				fmt.Println(err, "Context error")
+			}
+			_, errr := u.userUsecase.Create(ctxNew, &req)
+			if errr != nil {
+				fmt.Println(errr, "Create=========================")
 			}
 			// fmt.Println(req, "user")
 
