@@ -16,16 +16,16 @@ const (
 )
 
 var consumerCmd = &cobra.Command{
-	Use:   "consumer",
-	Short: "To run consumer give the name followed by arguments consumer",
+	Use:   "consumer", // command name that we will use to invoke this command 'go run cmd/main.go consumer ...'
+	Short: "To run consumer give the name followed by arguments consumer", // example usage of this command: 'go run cmd/main.go help'
 	Long: `Example : 
-		go run cmd/main.go consumer name_of_consumer`,
-	Args: cobra.ExactArgs(1),
+		go run cmd/main.go consumer name_of_consumer`, // example usage of this command: 'go run cmd/main.go help consumer'
+	Args: cobra.ExactArgs(1), // number of arguments the command expects
 
-	Run: func(cmd *cobra.Command, args []string) {
-		consumerName := args[0]
+	Run: func(cmd *cobra.Command, args []string) { // this function will be executed when this command is invoked
+		consumerName := args[0] // extracts the first argument from the 'args' slice
 
-		switch consumerName {
+		switch consumerName { // switch statement based on consumerName
 		case USER_CREATE_CONSUMER:
 			UserCreateConsumerRun()
 		default:
