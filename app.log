@@ -1,43 +1,63 @@
-2024-04-22T19:39:15.644+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T19:40:43.569+0500	ERROR	services/user.go:74	userUseCase.Get	{"error": "object not found"}
-fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Get
-	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/delivery/grpc/services/user.go:74
-fourth-exam/user-service-evrone/genproto/user_service._UserService_Get_Handler
-	/home/mubina/go/src/fourth-exam/user-service-evrone/genproto/user_service/user.pb.go:1090
+2024-04-25T17:28:18.733+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T17:30:11.289+0500	INFO	app/root.go:37	user service stops
+2024-04-25T17:35:22.021+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T17:35:26.920+0500	ERROR	services/user.go:43	userUseCase.Create	{"error": "object already exist"}
+fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Create
+	/home/mubina/user-service-evrone/user-service-evrone/internal/delivery/grpc/services/user.go:43
+fourth-exam/user-service-evrone/genproto/user_service._UserService_Create_Handler
+	/home/mubina/user-service-evrone/user-service-evrone/genproto/user_service/user.pb.go:1054
 google.golang.org/grpc.(*Server).processUnaryRPC
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
 google.golang.org/grpc.(*Server).handleStream
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
 google.golang.org/grpc.(*Server).serveStreams.func2.1
 	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
-2024-04-22T19:41:12.122+0500	INFO	app/root.go:37	user service stops
-2024-04-22T19:41:22.727+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T19:42:26.818+0500	INFO	app/root.go:37	user service stops
-2024-04-22T19:42:28.623+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T19:48:38.024+0500	INFO	app/root.go:37	user service stops
-2024-04-22T19:48:44.230+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T19:50:10.192+0500	INFO	app/root.go:37	user service stops
-2024-04-22T19:50:14.568+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:03:53.064+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:03:55.132+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:06:17.392+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:07:47.796+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:10:43.191+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:10:48.397+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:12:09.220+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:12:15.249+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:13:24.401+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:13:27.701+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:14:14.551+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:14:20.424+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:15:19.805+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:15:24.543+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:16:43.122+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:21:41.574+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:23:57.535+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:24:07.151+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:25:42.186+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:26:10.282+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:27:04.232+0500	INFO	app/root.go:37	user service stops
-2024-04-22T20:27:12.116+0500	INFO	app/app.go:82	gRPC Server Listening	{"url": ":9090"}
-2024-04-22T20:28:00.972+0500	INFO	app/root.go:37	user service stops
+2024-04-25T17:35:41.273+0500	INFO	app/root.go:37	user service stops
+2024-04-25T17:35:45.076+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T17:35:47.703+0500	ERROR	services/user.go:43	userUseCase.Create	{"error": "object already exist"}
+fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).Create
+	/home/mubina/user-service-evrone/user-service-evrone/internal/delivery/grpc/services/user.go:43
+fourth-exam/user-service-evrone/genproto/user_service._UserService_Create_Handler
+	/home/mubina/user-service-evrone/user-service-evrone/genproto/user_service/user.pb.go:1054
+google.golang.org/grpc.(*Server).processUnaryRPC
+	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
+google.golang.org/grpc.(*Server).handleStream
+	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
+google.golang.org/grpc.(*Server).serveStreams.func2.1
+	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
+2024-04-25T17:35:59.400+0500	INFO	app/root.go:37	user service stops
+2024-04-25T17:37:13.615+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T17:40:46.335+0500	INFO	app/root.go:37	user service stops
+2024-04-25T19:53:25.886+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T19:54:40.975+0500	INFO	app/root.go:37	user service stops
+2024-04-25T19:57:06.821+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T19:58:20.737+0500	INFO	app/root.go:37	user service stops
+2024-04-25T20:41:35.381+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T20:45:10.564+0500	INFO	app/root.go:37	user service stops
+2024-04-25T20:46:28.319+0500	INFO	app/app.go:90	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T20:53:34.018+0500	INFO	app/root.go:37	user service stops
+2024-04-25T20:56:01.954+0500	INFO	app/app.go:91	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T21:00:12.908+0500	INFO	app/root.go:37	user service stops
+2024-04-25T21:00:41.685+0500	INFO	app/app.go:91	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T21:02:06.461+0500	INFO	app/root.go:37	user service stops
+2024-04-25T21:25:35.944+0500	INFO	app/app.go:91	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T21:26:59.726+0500	INFO	app/root.go:37	user service stops
+2024-04-25T21:30:13.923+0500	INFO	app/app.go:91	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T21:30:57.237+0500	INFO	app/root.go:37	user service stops
+2024-04-25T21:31:07.287+0500	INFO	app/app.go:91	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T21:34:48.522+0500	INFO	app/root.go:37	user service stops
+2024-04-25T21:36:08.388+0500	INFO	app/app.go:91	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T21:36:11.937+0500	ERROR	services/user.go:109	userUseCase.List	{"error": "ERROR: column \"hello\" does not exist (SQLSTATE 42703)"}
+fourth-exam/user-service-evrone/internal/delivery/grpc/services.(*userRPC).List
+	/home/mubina/go/src/user-service-evrone/internal/delivery/grpc/services/user.go:109
+fourth-exam/user-service-evrone/genproto/user_service._UserService_List_Handler
+	/home/mubina/go/src/user-service-evrone/genproto/user_service/user.pb.go:1126
+google.golang.org/grpc.(*Server).processUnaryRPC
+	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1369
+google.golang.org/grpc.(*Server).handleStream
+	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1780
+google.golang.org/grpc.(*Server).serveStreams.func2.1
+	/home/mubina/go/pkg/mod/google.golang.org/grpc@v1.63.2/server.go:1019
+2024-04-25T21:36:54.143+0500	INFO	app/root.go:37	user service stops
+2024-04-25T21:37:18.260+0500	INFO	app/app.go:91	gRPC Server Listening	{"url": ":9090"}
+2024-04-25T21:48:34.160+0500	INFO	app/root.go:37	user service stops

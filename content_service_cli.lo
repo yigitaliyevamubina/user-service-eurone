@@ -13,3 +13,16 @@ fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
 2024-04-22T20:25:06.323+0500	INFO	app/consumer.go:57	user consumer stops
 2024-04-22T20:26:57.410+0500	INFO	app/consumer.go:57	user consumer stops
 2024-04-22T20:27:54.522+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:34:22.454+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "\n$f09ac3fb-1dd1-4a02-b866-0a4d43b8d8f1\u0012\u0003123\u001a\u0015mubina123@example.com\"\u0011hashedpassword123*\u0004John2\u0003Doe:.Software engineer passionate about technology.B\u0013https://johndoe.comX\u0001b\u0014somerandomrefresh123", "topic": "user.service.create", "error": "invalid character '$' looking for beginning of value"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T20:34:44.329+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:35:48.148+0500	ERROR	kafka/consumer.go:73	consumer failed to handle message:	{"value": "\n$f09ac3fb-1dd1-4a02-b866-0a4d43b8d8f1\u0012\u0003123\u001a\u0015mubina123@example.com\"\u0011hashedpassword123*\u0004John2\u0003Doe:.Software engineer passionate about technology.B\u0013https://johndoe.comX\u0001b\u0014somerandomrefresh123", "topic": "user.service.create", "error": "invalid character '$' looking for beginning of value"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:73
+2024-04-22T20:36:53.407+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:38:15.767+0500	INFO	app/consumer.go:57	user consumer stops
+2024-04-22T20:38:16.486+0500	ERROR	kafka/consumer.go:68	consumer failed to fetch message:	{"topic": "user.service.create", "error": "EOF"}
+fourth-exam/user-service-evrone/internal/infrastructure/kafka.runReader
+	/home/mubina/go/src/fourth-exam/user-service-evrone/internal/infrastructure/kafka/consumer.go:68
+2024-04-22T20:40:33.307+0500	INFO	app/consumer.go:57	user consumer stops

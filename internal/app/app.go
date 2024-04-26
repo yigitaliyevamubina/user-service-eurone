@@ -10,6 +10,7 @@ import (
 	repo "fourth-exam/user-service-evrone/internal/infrastructure/repository/postgresql"
 	"fourth-exam/user-service-evrone/internal/pkg/config"
 	"fourth-exam/user-service-evrone/internal/pkg/logger"
+	"fourth-exam/user-service-evrone/internal/pkg/otlp"
 	"fourth-exam/user-service-evrone/internal/pkg/postgres"
 	"fourth-exam/user-service-evrone/internal/usecase"
 	"fourth-exam/user-service-evrone/internal/usecase/event"
@@ -25,6 +26,7 @@ type App struct {
 	DB             *postgres.PostgresDB
 	ServiceClients grpc_service_clients.ServiceClients
 	GrpcServer     *grpc.Server
+	ShutdownOTLP   func() error
 	BrokerConsumer event.BrokerConsumer
 }
 
@@ -36,6 +38,12 @@ func NewApp(cfg *config.Config) (*App, error) {
 
 	db, err := postgres.New(cfg)
 	if err != nil {
+		return nil, err
+	}
+
+	shutdownOTLP, err := otlp.InitOTLPProvider(cfg)
+	if err != nil {
+		fmt.Println("initOTLP provider error")
 		return nil, err
 	}
 	grpcServer := grpc.NewServer()
@@ -52,6 +60,7 @@ func NewApp(cfg *config.Config) (*App, error) {
 		GrpcServer:     grpcServer,
 		ServiceClients: clients,
 		BrokerConsumer: brokerConsumer,
+		ShutdownOTLP:   shutdownOTLP,
 	}, nil
 }
 

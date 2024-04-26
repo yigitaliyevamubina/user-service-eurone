@@ -24,6 +24,11 @@ type Config struct {
 		SslMode  string
 	}
 
+	OTLPCollector struct {
+		Host string
+		Port string
+	}
+
 	Kafka struct {
 		Address []string
 		Topic   struct {
@@ -49,6 +54,9 @@ func New() *Config {
 	config.DB.Password = getEnv("POSTGRES_PASSWORD", "mubina2007")
 	config.DB.SslMode = getEnv("POSTGRES_SSLMODE", "disable")
 	config.DB.Name = getEnv("POSTGRES_DATABASE", "socialdb")
+
+	config.OTLPCollector.Host = getEnv("OTLP_COLLECTOR_HOST", "0.0.0.0")
+	config.OTLPCollector.Port = getEnv("OTLP_COLLECTOR_PORT", ":4317")
 
 	// kafka configuration
 	config.Kafka.Address = strings.Split(getEnv("KAFKA_ADDRESS", "localhost:9092"), ",")

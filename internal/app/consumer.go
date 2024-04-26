@@ -32,9 +32,7 @@ func NewUserConsumer(conf *config.Config) (*UserConsumer, error) {
 	consumer := kafka.NewConsumer(logger)
 
 	db, err := postgres.New(conf)
-	fmt.Println(err, " error here")
 	if err != nil {
-		fmt.Println(err, " error here")
 		return nil, err
 	}
 

@@ -5,14 +5,16 @@ import (
 	"database/sql"
 	"fmt"
 	"fourth-exam/user-service-evrone/internal/entity"
+	"fourth-exam/user-service-evrone/internal/pkg/otlp"
 	"fourth-exam/user-service-evrone/internal/pkg/postgres"
 
 	"github.com/Masterminds/squirrel"
 )
 
 const (
-	usersTableName  = "users"
-	userServiceName = "userService"
+	usersTableName     = "users"
+	userServiceName    = "userService"
+	userSpanRepoPrefix = "userServiceRepo"
 )
 
 type userRepo struct {
@@ -45,6 +47,9 @@ func (u *userRepo) usersSelectQueryPrefix() squirrel.SelectBuilder {
 }
 
 func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, error) {
+	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Create")
+	defer span.End()
+
 	fmt.Println("2")
 	data := map[string]any{
 		"id":            req.Id,
@@ -69,7 +74,6 @@ func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, 
 
 	fmt.Println("3")
 
-
 	fmt.Println(query)
 	fmt.Println(args...)
 
@@ -79,11 +83,13 @@ func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, 
 		return nil, u.db.Error(err)
 	}
 
-
 	return req, nil
 }
 
 func (u *userRepo) Get(ctx context.Context, params map[string]string) (*entity.User, error) {
+	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Get")
+	defer span.End()
+
 	var (
 		user entity.User
 	)
@@ -104,17 +110,17 @@ func (u *userRepo) Get(ctx context.Context, params map[string]string) (*entity.U
 		updatedAt sql.NullTime
 	)
 	if err = u.db.QueryRow(ctx, query, args...).Scan(
-		&user.Id, 
+		&user.Id,
 		&user.Username,
-		&user.Email, 
-		&user.Password, 
-		&user.FirstName, 
-		&user.LastName, 
-		&user.Bio, 
-		&user.Website, 
-		&user.IsActive, 
-		&user.RefreshToken, 
-		&user.CreatedAt, 
+		&user.Email,
+		&user.Password,
+		&user.FirstName,
+		&user.LastName,
+		&user.Bio,
+		&user.Website,
+		&user.IsActive,
+		&user.RefreshToken,
+		&user.CreatedAt,
 		&updatedAt,
 	); err != nil {
 		return nil, u.db.Error(err)
@@ -127,6 +133,9 @@ func (u *userRepo) Get(ctx context.Context, params map[string]string) (*entity.U
 }
 
 func (u *userRepo) List(ctx context.Context, req *entity.GetListFilter) ([]*entity.User, error) {
+	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"List")
+	defer span.End()
+
 	var (
 		users []*entity.User
 	)
@@ -157,17 +166,17 @@ func (u *userRepo) List(ctx context.Context, req *entity.GetListFilter) ([]*enti
 	for rows.Next() {
 		var user entity.User
 		if err = rows.Scan(
-			&user.Id, 
+			&user.Id,
 			&user.Username,
-			&user.Email, 
-			&user.Password, 
-			&user.FirstName, 
-			&user.LastName, 
-			&user.Bio, 
-			&user.Website, 
-			&user.IsActive, 
-			&user.RefreshToken, 
-			&user.CreatedAt, 
+			&user.Email,
+			&user.Password,
+			&user.FirstName,
+			&user.LastName,
+			&user.Bio,
+			&user.Website,
+			&user.IsActive,
+			&user.RefreshToken,
+			&user.CreatedAt,
 			&updatedAt,
 		); err != nil {
 			return nil, u.db.Error(err)
@@ -183,20 +192,23 @@ func (u *userRepo) List(ctx context.Context, req *entity.GetListFilter) ([]*enti
 }
 
 func (u *userRepo) Update(ctx context.Context, req *entity.User) error {
+	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Update")
+	defer span.End()
+
 	data := map[string]any{
-		"first_name": req.FirstName, 
-		"last_name": req.LastName, 
-		"username": req.Username, 
-		"bio": req.Bio,
-		"website": req.Website,
-		"is_active": req.IsActive,
+		"first_name": req.FirstName,
+		"last_name":  req.LastName,
+		"username":   req.Username,
+		"bio":        req.Bio,
+		"website":    req.Website,
+		"is_active":  req.IsActive,
 		"updated_at": req.UpdatedAt,
 	}
-	
-	sqlStr, args, err := u.db.Sq.Builder. 
-		Update(u.tableName). 
-		SetMap(data). 
-		Where(squirrel.Eq{"id": req.Id}). 
+
+	sqlStr, args, err := u.db.Sq.Builder.
+		Update(u.tableName).
+		SetMap(data).
+		Where(squirrel.Eq{"id": req.Id}).
 		ToSql()
 	if err != nil {
 		return u.db.ErrSQLBuild(err, u.tableName+" update")
@@ -215,9 +227,12 @@ func (u *userRepo) Update(ctx context.Context, req *entity.User) error {
 }
 
 func (u *userRepo) Delete(ctx context.Context, id string) error {
-	sqlStr, args, err := u.db.Sq.Builder. 
-		Delete(u.tableName). 
-		Where(u.db.Sq.Equal("id", id)). 
+	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Delete")
+	defer span.End()
+
+	sqlStr, args, err := u.db.Sq.Builder.
+		Delete(u.tableName).
+		Where(u.db.Sq.Equal("id", id)).
 		ToSql()
 	if err != nil {
 		return u.db.ErrSQLBuild(err, u.tableName+" delete")
@@ -233,4 +248,4 @@ func (u *userRepo) Delete(ctx context.Context, id string) error {
 	}
 
 	return nil
-} 
+}
