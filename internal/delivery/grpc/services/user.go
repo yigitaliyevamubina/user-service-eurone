@@ -5,12 +5,18 @@ import (
 	pb "fourth-exam/user-service-evrone/genproto/user_service"
 	grpc "fourth-exam/user-service-evrone/internal/delivery"
 	"fourth-exam/user-service-evrone/internal/entity"
+	"fourth-exam/user-service-evrone/internal/pkg/otlp"
 	"fourth-exam/user-service-evrone/internal/usecase"
 	"time"
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"go.uber.org/zap"
+)
+
+const (
+	serviceNameUser = "userService"
+	spanNameUser    = "userUsecase"
 )
 
 type userRPC struct {
@@ -26,6 +32,9 @@ func NewRPC(logger *zap.Logger, userUsecase usecase.User) pb.UserServiceServer {
 }
 
 func (d *userRPC) Create(ctx context.Context, in *pb.User) (*pb.User, error) {
+	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Create")
+	defer span.End()
+
 	id := uuid.New().String()
 	_, err := d.userUsecase.Create(ctx, &entity.User{
 		Id:           id,
@@ -48,6 +57,9 @@ func (d *userRPC) Create(ctx context.Context, in *pb.User) (*pb.User, error) {
 }
 
 func (d *userRPC) Update(ctx context.Context, in *pb.User) (*pb.User, error) {
+	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Update")
+	defer span.End()
+
 	err := d.userUsecase.Update(ctx, &entity.User{
 		Id:           in.Id,
 		Email:        in.Email,
@@ -69,6 +81,9 @@ func (d *userRPC) Update(ctx context.Context, in *pb.User) (*pb.User, error) {
 }
 
 func (d *userRPC) Get(ctx context.Context, in *pb.GetRequest) (*pb.UserModel, error) {
+	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Get")
+	defer span.End()
+
 	user, err := d.userUsecase.Get(ctx, map[string]string{"id": in.UserId})
 	if err != nil {
 		d.logger.Error("userUseCase.Get", zap.Error(err))
@@ -88,6 +103,9 @@ func (d *userRPC) Get(ctx context.Context, in *pb.GetRequest) (*pb.UserModel, er
 }
 
 func (d *userRPC) Delete(ctx context.Context, in *pb.GetRequest) (*empty.Empty, error) {
+	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Delete")
+	defer span.End()
+
 	err := d.userUsecase.Delete(ctx, in.UserId)
 	if err != nil {
 		d.logger.Error("userUseCase.Delete", zap.Error(err))
@@ -98,6 +116,9 @@ func (d *userRPC) Delete(ctx context.Context, in *pb.GetRequest) (*empty.Empty, 
 }
 
 func (d *userRPC) List(ctx context.Context, in *pb.GetListFilter) (*pb.Users, error) {
+	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"List")
+	defer span.End()
+
 	filter := &entity.GetListFilter{
 		Limit:   in.Limit,
 		Page:    in.Page,

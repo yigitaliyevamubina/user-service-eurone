@@ -13,11 +13,11 @@ services:
   # Collector
   otel-collector:
     container_name: otel-collector
-    image: otel/opentelemetry-collector:latest # Replace this with your desired image name
+    image: otel/opentelemetry-collector:latest 
     command: ["--config=/etc/otel-collector-config.yaml"]
     volumes:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
     ports:
-      - "4317:4317" # OTLP gRPC receiver
+      - "4317:4317"
     depends_on:
       - jaeger-all-in-one

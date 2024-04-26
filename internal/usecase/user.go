@@ -13,7 +13,7 @@ import (
 const (
 	serviceNameUser = "userService"
 	spanNameUser    = "userUsecase"
-  )  
+)  
 
 type User interface {
 	Create(ctx context.Context, req *entity.User) (*entity.User, error)
