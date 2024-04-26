@@ -21,9 +21,6 @@ func InitOTLPProvider(config *config.Config) (func() error, error) {
 		otelAgentAddr = fmt.Sprintf("%s%s", config.OTLPCollector.Host, config.OTLPCollector.Port)
 	)
 
-	fmt.Println("otelAgentAddr ->> printing")
-	fmt.Println(otelAgentAddr)
-	fmt.Println("otelAgentAddr ->> printing")
 	res, err := resource.New(ctx,
 		resource.WithFromEnv(),
 		resource.WithProcess(),
@@ -45,7 +42,6 @@ func InitOTLPProvider(config *config.Config) (func() error, error) {
 	)
 
 	traceExporter, err := otlptrace.New(ctx, traceClient)
-	fmt.Println("traceExporter ->> new trace")
 	if err != nil {
 		return nil, fmt.Errorf("otlp collector failed to create trace exporter: %w", err)
 	}

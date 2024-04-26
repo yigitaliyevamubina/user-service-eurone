@@ -11,6 +11,7 @@ import (
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
+	"go.opentelemetry.io/otel/attribute"
 	"go.uber.org/zap"
 )
 
@@ -34,6 +35,8 @@ func NewRPC(logger *zap.Logger, userUsecase usecase.User) pb.UserServiceServer {
 func (d *userRPC) Create(ctx context.Context, in *pb.User) (*pb.User, error) {
 	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Create")
 	defer span.End()
+
+	span.SetAttributes(attribute.KeyValue{Key: "User -> delivery -> ", Value: attribute.StringValue("Create")})
 
 	id := uuid.New().String()
 	_, err := d.userUsecase.Create(ctx, &entity.User{
@@ -60,6 +63,8 @@ func (d *userRPC) Update(ctx context.Context, in *pb.User) (*pb.User, error) {
 	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Update")
 	defer span.End()
 
+	span.SetAttributes(attribute.KeyValue{Key: "User -> delivery -> ", Value: attribute.StringValue("Update")})
+
 	err := d.userUsecase.Update(ctx, &entity.User{
 		Id:           in.Id,
 		Email:        in.Email,
@@ -84,6 +89,8 @@ func (d *userRPC) Get(ctx context.Context, in *pb.GetRequest) (*pb.UserModel, er
 	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Get")
 	defer span.End()
 
+	span.SetAttributes(attribute.KeyValue{Key: "User -> delivery -> ", Value: attribute.StringValue("Get")})
+
 	user, err := d.userUsecase.Get(ctx, map[string]string{"id": in.UserId})
 	if err != nil {
 		d.logger.Error("userUseCase.Get", zap.Error(err))
@@ -106,6 +113,8 @@ func (d *userRPC) Delete(ctx context.Context, in *pb.GetRequest) (*empty.Empty, 
 	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"Delete")
 	defer span.End()
 
+	span.SetAttributes(attribute.KeyValue{Key: "User -> delivery -> ", Value: attribute.StringValue("Delete")})
+
 	err := d.userUsecase.Delete(ctx, in.UserId)
 	if err != nil {
 		d.logger.Error("userUseCase.Delete", zap.Error(err))
@@ -118,6 +127,8 @@ func (d *userRPC) Delete(ctx context.Context, in *pb.GetRequest) (*empty.Empty, 
 func (d *userRPC) List(ctx context.Context, in *pb.GetListFilter) (*pb.Users, error) {
 	ctx, span := otlp.Start(ctx, serviceNameUser, spanNameUser+"List")
 	defer span.End()
+
+	span.SetAttributes(attribute.KeyValue{Key: "User -> delivery -> ", Value: attribute.StringValue("Get list")})
 
 	filter := &entity.GetListFilter{
 		Limit:   in.Limit,

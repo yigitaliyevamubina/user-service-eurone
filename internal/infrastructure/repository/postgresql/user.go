@@ -9,6 +9,7 @@ import (
 	"fourth-exam/user-service-evrone/internal/pkg/postgres"
 
 	"github.com/Masterminds/squirrel"
+	"go.opentelemetry.io/otel/attribute"
 )
 
 const (
@@ -50,7 +51,8 @@ func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, 
 	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Create")
 	defer span.End()
 
-	fmt.Println("2")
+	span.SetAttributes(attribute.KeyValue{Key: "User -> repository -> ", Value: attribute.StringValue("Create user")})
+
 	data := map[string]any{
 		"id":            req.Id,
 		"username":      req.Username,
@@ -66,20 +68,13 @@ func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, 
 		"updated_at":    req.UpdatedAt,
 	}
 
-	fmt.Println(req)
 	query, args, err := u.db.Sq.Builder.Insert(u.tableName).SetMap(data).ToSql()
 	if err != nil {
 		return nil, u.db.ErrSQLBuild(err, fmt.Sprintf("%s %s", u.tableName, "create"))
 	}
 
-	fmt.Println("3")
-
-	fmt.Println(query)
-	fmt.Println(args...)
-
 	_, err = u.db.Exec(ctx, query, args...)
 	if err != nil {
-		fmt.Println(err, "<--------")
 		return nil, u.db.Error(err)
 	}
 
@@ -89,6 +84,8 @@ func (u *userRepo) Create(ctx context.Context, req *entity.User) (*entity.User, 
 func (u *userRepo) Get(ctx context.Context, params map[string]string) (*entity.User, error) {
 	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Get")
 	defer span.End()
+
+	span.SetAttributes(attribute.KeyValue{Key: "User -> repository -> ", Value: attribute.StringValue("Get user")})
 
 	var (
 		user entity.User
@@ -135,6 +132,8 @@ func (u *userRepo) Get(ctx context.Context, params map[string]string) (*entity.U
 func (u *userRepo) List(ctx context.Context, req *entity.GetListFilter) ([]*entity.User, error) {
 	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"List")
 	defer span.End()
+
+	span.SetAttributes(attribute.KeyValue{Key: "User -> repository -> ", Value: attribute.StringValue("Get list")})
 
 	var (
 		users []*entity.User
@@ -195,6 +194,8 @@ func (u *userRepo) Update(ctx context.Context, req *entity.User) error {
 	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Update")
 	defer span.End()
 
+	span.SetAttributes(attribute.KeyValue{Key: "User -> repository -> ", Value: attribute.StringValue("Update user")})
+
 	data := map[string]any{
 		"first_name": req.FirstName,
 		"last_name":  req.LastName,
@@ -229,6 +230,8 @@ func (u *userRepo) Update(ctx context.Context, req *entity.User) error {
 func (u *userRepo) Delete(ctx context.Context, id string) error {
 	ctx, span := otlp.Start(ctx, userServiceName, userSpanRepoPrefix+"Delete")
 	defer span.End()
+
+	span.SetAttributes(attribute.KeyValue{Key: "User -> repository -> ", Value: attribute.StringValue("Delete user")})
 
 	sqlStr, args, err := u.db.Sq.Builder.
 		Delete(u.tableName).
